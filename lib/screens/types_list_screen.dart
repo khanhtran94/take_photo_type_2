@@ -20,8 +20,19 @@ class _TypesListScreenState extends State<TypesListScreen> {
         builder: (ctx, snapshot) =>
             snapshot.connectionState == ConnectionState.waiting
                 ? Center(child: CircularProgressIndicator())
-                : Center(
-                    child: Text('list type'),
+                : Consumer<TypeProvider>(
+                    child: Center(
+                      child: Text('No item'),
+                    ),
+                    builder: (ctx, typeProvider, ch) =>
+                        typeProvider.typeList.length <= 0
+                            ? ch
+                            : ListView.builder(
+                                itemBuilder: (ctx, i) => ListTile(
+                                  title: Text(typeProvider.typeList[i].name),
+                                ),
+                                itemCount: typeProvider.typeList.length,
+                              ),
                   ),
       ),
     );
