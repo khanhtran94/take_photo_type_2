@@ -10,15 +10,12 @@ class TypeProvider with ChangeNotifier {
     return [..._typeList];
   }
 
-  void addType(int id, String name, String description) {
-    final newType = Type(id: id, name: name, description: description);
+  void addType(String name, String description) {
+    final newType = Type(name: name, description: description);
     _typeList.add(newType);
     notifyListeners();
-    DBHelper.insert('types', {
-      'id': newType.id,
-      'name': newType.name,
-      'description': newType.description
-    });
+    DBHelper.insert(
+        'types', {'name': newType.name, 'description': newType.description});
   }
 
   Future<void> fetchAndSetType() async {
