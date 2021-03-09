@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import './providers/type_provider.dart';
 import './screens/types_list_screen.dart';
 
+import './screens/type_item_screen.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -20,6 +22,7 @@ class MyApp extends StatelessWidget {
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: TypesListScreen(),
+        routes: {TypeItemScreen.routeName: (ctx) => TypeItemScreen()},
       ),
     );
   }

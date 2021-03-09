@@ -19,7 +19,6 @@ class _TypeInputState extends State<TypeInput> {
     final enterName = _nameController.text;
     final enterDescription = _descriptionController.text;
 
-    // widget.addType(enterName, enterDescription);
     Provider.of<TypeProvider>(context, listen: false)
         .addType(enterName, enterDescription);
     Navigator.of(context).pop(context);
