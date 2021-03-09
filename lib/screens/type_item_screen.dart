@@ -12,14 +12,16 @@ class TypeItemScreen extends StatefulWidget {
 class _TypeItemScreenState extends State<TypeItemScreen> {
   @override
   Widget build(BuildContext context) {
-    final Map<String, Type> args = ModalRoute.of(context).settings.arguments;
+    // final Map<String, Type> args = ModalRoute.of(context).settings.arguments;
+    final Type args = ModalRoute.of(context).settings.arguments;
+
     print(args);
     return Scaffold(
       appBar: AppBar(
-        title: Text('${args['type'].name}'),
+        title: Text('${args.name}'),
       ),
       body: Center(
-        child: Text('${args['type'].id}'),
+        child: Text('${args.id}'),
       ),
     );
   }

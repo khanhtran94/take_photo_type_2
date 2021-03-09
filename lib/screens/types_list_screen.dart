@@ -46,26 +46,28 @@ class _TypesListScreenState extends State<TypesListScreen> {
                 child: Center(
                   child: Text('No item'),
                 ),
-                builder: (ctx, typeProvider, ch) => typeProvider
-                            .typeList.length <=
-                        0
-                    ? ch
-                    : ListView.builder(
-                        itemBuilder: (ctx, i) => ListTile(
-                          leading: CircleAvatar(
-                            child: Text('${typeProvider.typeList[i].id}'),
+                builder: (ctx, typeProvider, ch) =>
+                    typeProvider.typeList.length <= 0
+                        ? ch
+                        : ListView.builder(
+                            itemBuilder: (ctx, i) => ListTile(
+                              leading: CircleAvatar(
+                                child: Text('${typeProvider.typeList[i].id}'),
+                              ),
+                              title: Text(typeProvider.typeList[i].name),
+                              subtitle:
+                                  Text(typeProvider.typeList[i].description),
+                              onTap: () {
+                                print("object");
+                                Navigator.of(context).pushNamed(
+                                    TypeItemScreen.routeName,
+                                    arguments: Type(
+                                        id: typeProvider.typeList[i].id,
+                                        name: typeProvider.typeList[i].name));
+                              },
+                            ),
+                            itemCount: typeProvider.typeList.length,
                           ),
-                          title: Text(typeProvider.typeList[i].name),
-                          subtitle: Text(typeProvider.typeList[i].description),
-                          onTap: () {
-                            print("object");
-                            Navigator.of(context).pushNamed(
-                                TypeItemScreen.routeName,
-                                arguments: {'type': typeProvider.typeList[i]});
-                          },
-                        ),
-                        itemCount: typeProvider.typeList.length,
-                      ),
               ),
       ),
     );
