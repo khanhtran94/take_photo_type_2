@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../model/type.dart';
 import '../model/image_item.dart';
 import '../model/item.dart';
+import '../widgets/item_widget.dart';
 
 class TypeItemScreen extends StatefulWidget {
   static const routeName = '/add-place';
@@ -21,7 +22,7 @@ class _TypeItemScreenState extends State<TypeItemScreen> {
         title: Text('${args.name}'),
       ),
       body: Center(
-        child: Text('${args.id}'),
+        child: ItemWidget(),
       ),
     );
   }
