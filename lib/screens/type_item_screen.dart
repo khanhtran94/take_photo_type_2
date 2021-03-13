@@ -16,14 +16,38 @@ class _TypeItemScreenState extends State<TypeItemScreen> {
     // final Map<String, Type> args = ModalRoute.of(context).settings.arguments;
     final Type args = ModalRoute.of(context).settings.arguments;
 
+    var mediaQueryData = MediaQuery.of(context);
+    final double widthScreen = mediaQueryData.size.width;
+    final double appBarHeight = kToolbarHeight;
+    final double paddingTop = mediaQueryData.padding.top;
+    final double paddingBottom = mediaQueryData.padding.bottom;
+    final double heightScreen =
+        mediaQueryData.size.height - paddingBottom - paddingTop - appBarHeight;
+
     print(args);
     return Scaffold(
       appBar: AppBar(
         title: Text('${args.name}'),
       ),
       body: Center(
-        child: ItemWidget(),
-      ),
+          child: new GridView.count(
+        crossAxisCount: 2,
+        childAspectRatio: widthScreen / heightScreen,
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        crossAxisSpacing: 10,
+        children: [
+          ItemWidget(),
+          ItemWidget(),
+          ItemWidget(),
+          ItemWidget(),
+          ItemWidget(),
+          ItemWidget(),
+          ItemWidget(),
+          ItemWidget(),
+          ItemWidget(),
+        ],
+      )),
     );
   }
 }

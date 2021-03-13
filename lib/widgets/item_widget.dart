@@ -18,9 +18,8 @@ class ItemWidget extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            width: 200,
-            height: 320,
-            color: Colors.amber,
+            height: 220,
+            color: Colors.blue,
             child: CarouselSlider.builder(
               options: CarouselOptions(
                 autoPlay: false,
@@ -35,7 +34,7 @@ class ItemWidget extends StatelessWidget {
               ),
             ),
           ),
-          Text('name item')
+          Text('${DateTime.now()}')
         ],
       ),
     );
