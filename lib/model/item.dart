@@ -1,7 +1,7 @@
 import '../model/image_item.dart';
 
 class Item {
-  final int id;
+  final String id;
   final String name;
   final int typeId;
   final List<ImageItem> imageItems;

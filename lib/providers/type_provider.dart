@@ -29,4 +29,6 @@ class TypeProvider with ChangeNotifier {
         .toList();
     notifyListeners();
   }
+
+  //todo: bo sung sau khi lay cac item cua type theo id
 }

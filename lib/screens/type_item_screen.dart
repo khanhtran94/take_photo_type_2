@@ -3,9 +3,10 @@ import '../model/type.dart';
 import '../model/image_item.dart';
 import '../model/item.dart';
 import '../widgets/item_widget.dart';
+import '../screens/add_image_screen.dart';
 
 class TypeItemScreen extends StatefulWidget {
-  static const routeName = '/add-place';
+  static const routeName = '/type-item';
   @override
   _TypeItemScreenState createState() => _TypeItemScreenState();
 }
@@ -48,6 +49,13 @@ class _TypeItemScreenState extends State<TypeItemScreen> {
           ItemWidget(),
         ],
       )),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed(AddImageScreen.routeName,
+              arguments: {'type_id': '${args.id}'});
+        },
+        child: Icon(Icons.add_a_photo),
+      ),
     );
   }
 }

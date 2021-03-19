@@ -8,9 +8,8 @@ class DBHelper {
         onCreate: (db, version) {
       db.execute(
           'CREATE TABLE types (id  INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT,description TEXT)');
-      db.execute(
-          'CREATE TABLE items (id  INTEGER PRIMARY KEY AUTOINCREMENT, type_id INTEGER, name TEXT)');
-      db.execute('CREATE TABLE image_items (item_id  INTEGER, image TEXT)');
+      db.execute('CREATE TABLE items (id  TEXT, type_id INTEGER, name TEXT)');
+      db.execute('CREATE TABLE image_items (item_id  TEXT, image TEXT)');
     }, version: 1);
   }
 
