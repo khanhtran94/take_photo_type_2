@@ -5,6 +5,7 @@ import './screens/types_list_screen.dart';
 
 import './screens/type_item_screen.dart';
 import './screens/add_image_screen.dart';
+import './screens/add_image_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
         routes: {
           TypeItemScreen.routeName: (ctx) => TypeItemScreen(),
           AddImageScreen.routeName: (ctx) => AddImageScreen(),
+          TypesListScreen.routeName: (ctx) => TypesListScreen()
         },
       ),
     );

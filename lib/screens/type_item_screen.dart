@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+
+import '../providers/item_provider.dart';
 import '../model/type.dart';
 import '../model/image_item.dart';
 import '../model/item.dart';
@@ -26,35 +29,38 @@ class _TypeItemScreenState extends State<TypeItemScreen> {
         mediaQueryData.size.height - paddingBottom - paddingTop - appBarHeight;
 
     print(args);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('${args.name}'),
-      ),
-      body: Center(
-          child: new GridView.count(
-        crossAxisCount: 2,
-        childAspectRatio: widthScreen / heightScreen,
-        shrinkWrap: true,
-        scrollDirection: Axis.vertical,
-        crossAxisSpacing: 10,
-        children: [
-          ItemWidget(),
-          ItemWidget(),
-          ItemWidget(),
-          ItemWidget(),
-          ItemWidget(),
-          ItemWidget(),
-          ItemWidget(),
-          ItemWidget(),
-          ItemWidget(),
-        ],
-      )),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          Navigator.of(context).pushNamed(AddImageScreen.routeName,
-              arguments: {'type_id': '${args.id}'});
-        },
-        child: Icon(Icons.add_a_photo),
+    return ChangeNotifierProvider.value(
+      value: ItemProvider(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text('${args.name}'),
+        ),
+        body: Center(
+            child: new GridView.count(
+          crossAxisCount: 2,
+          childAspectRatio: widthScreen / heightScreen,
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          crossAxisSpacing: 10,
+          children: [
+            ItemWidget(),
+            ItemWidget(),
+            ItemWidget(),
+            ItemWidget(),
+            ItemWidget(),
+            ItemWidget(),
+            ItemWidget(),
+            ItemWidget(),
+            ItemWidget(),
+          ],
+        )),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            Navigator.of(context).pushNamed(AddImageScreen.routeName,
+                arguments: {'type_id': '${args.id}'});
+          },
+          child: Icon(Icons.add_a_photo),
+        ),
       ),
     );
   }

@@ -6,6 +6,7 @@ import '../model/type.dart';
 import '../screens/type_item_screen.dart';
 
 class TypesListScreen extends StatefulWidget {
+  static const routeName = '/types-list';
   @override
   _TypesListScreenState createState() => _TypesListScreenState();
 }

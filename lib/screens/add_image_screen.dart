@@ -25,8 +25,8 @@ class _AddImageScreenState extends State<AddImageScreen> {
     _listImage.add(new ImageItem(image: _pickedImage));
   }
 
-  void _saveImages() {
-    print("save images");
+  void _saveImages(int typeId) {
+    print("save images  ${typeId}");
     Provider.of<ItemProvider>(context, listen: false)
         .addItem(_titleController.text, 1, _listImage);
     Navigator.of(context).pop();
@@ -64,7 +64,7 @@ class _AddImageScreenState extends State<AddImageScreen> {
             ),
           ),
           RaisedButton.icon(
-            onPressed: _saveImages,
+            onPressed: () => _saveImages(int.parse(argument['type_id'])),
             icon: Icon(Icons.add),
             label: Text('Add image'),
             elevation: 0,
