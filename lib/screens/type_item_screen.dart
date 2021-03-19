@@ -29,38 +29,35 @@ class _TypeItemScreenState extends State<TypeItemScreen> {
         mediaQueryData.size.height - paddingBottom - paddingTop - appBarHeight;
 
     print(args);
-    return ChangeNotifierProvider.value(
-      value: ItemProvider(),
-      child: Scaffold(
-        appBar: AppBar(
-          title: Text('${args.name}'),
-        ),
-        body: Center(
-            child: new GridView.count(
-          crossAxisCount: 2,
-          childAspectRatio: widthScreen / heightScreen,
-          shrinkWrap: true,
-          scrollDirection: Axis.vertical,
-          crossAxisSpacing: 10,
-          children: [
-            ItemWidget(),
-            ItemWidget(),
-            ItemWidget(),
-            ItemWidget(),
-            ItemWidget(),
-            ItemWidget(),
-            ItemWidget(),
-            ItemWidget(),
-            ItemWidget(),
-          ],
-        )),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context).pushNamed(AddImageScreen.routeName,
-                arguments: {'type_id': '${args.id}'});
-          },
-          child: Icon(Icons.add_a_photo),
-        ),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('${args.name}'),
+      ),
+      body: Center(
+          child: new GridView.count(
+        crossAxisCount: 2,
+        childAspectRatio: widthScreen / heightScreen,
+        shrinkWrap: true,
+        scrollDirection: Axis.vertical,
+        crossAxisSpacing: 10,
+        children: [
+          ItemWidget(),
+          ItemWidget(),
+          ItemWidget(),
+          ItemWidget(),
+          ItemWidget(),
+          ItemWidget(),
+          ItemWidget(),
+          ItemWidget(),
+          ItemWidget(),
+        ],
+      )),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context).pushNamed(AddImageScreen.routeName,
+              arguments: {'type_id': '${args.id}'});
+        },
+        child: Icon(Icons.add_a_photo),
       ),
     );
   }

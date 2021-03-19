@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:take_picture_type_v2/model/image_item.dart';
 
 import '../widgets/image_input.dart';
-import '../providers/item_provider.dart';
+import '../providers/type_provider.dart';
 
 import 'dart:io';
 
@@ -27,7 +27,7 @@ class _AddImageScreenState extends State<AddImageScreen> {
 
   void _saveImages(int typeId) {
     print("save images  ${typeId}");
-    Provider.of<ItemProvider>(context, listen: false)
+    Provider.of<TypeProvider>(context, listen: false)
         .addItem(_titleController.text, 1, _listImage);
     Navigator.of(context).pop();
   }
